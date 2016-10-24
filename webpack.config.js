@@ -1,10 +1,15 @@
+const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'eval-source-map',
   entry: {
-    app: './src',
+    app: [
+      'react-hot-loader/patch',
+      'webpack-dev-server/client?http://localhost:8080',
+      './src',
+    ],
   },
   output: {
     path: path.join(__dirname, './build'),
@@ -28,8 +33,13 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
   ],
+  devServer: {
+    contentBase: './build',
+    hot: true,
+  }
 }
