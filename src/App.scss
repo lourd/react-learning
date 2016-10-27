@@ -1,12 +1,18 @@
+$red: green;
+
 .links {
   position: absolute;
   top: 15px;
   left: 15px;
   font-size: 20px;
-}
-
-.links a {
-  display: block;
+  z-index: 1;
+  a {
+    display: block;
+    color: $red;
+    &:active {
+      color: purple;
+    };
+  }
 }
 
 .container {
@@ -15,4 +21,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: rotate(5deg);
 }

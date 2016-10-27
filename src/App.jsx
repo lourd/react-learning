@@ -13,14 +13,14 @@ import Functional from './components/Functional'
 import ColorBackground from './components/ColorBackground'
 import NotFound from './components/NotFound'
 
-import './App.css'
+import styles from './App.scss'
 
 const App = () => (
   <HashRouter>
     <div>
 
       {/* A list of links to get to the examples */}
-      <div className="links">
+      <div className={styles.links}>
         <Link to="/">Hello World</Link>
         <Link to="/counter">Counter</Link>
         <Link to="/functional">Functional Example</Link>
@@ -30,7 +30,7 @@ const App = () => (
       </div>
 
       {/* The container in which individual pages will render */}
-      <div className="container">
+      <div className={styles.container}>
         <Match pattern="/" exactly component={HelloWorld} />
         <Match pattern="/counter" component={Counter} />
         <Match pattern="/functional" component={Functional} />
